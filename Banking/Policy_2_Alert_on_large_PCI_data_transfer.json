@@ -1,0 +1,42 @@
+{
+    "displayName": "Alert on large PCI data transfer",
+    "description": "Detect bulk PCI data movements",
+    "isEnabled": true,
+    "mode": "test",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-76771",
+            "name": "Alert on large PCI data transfer",
+            "actions": [
+                {
+                    "type": "audit"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "banking-pci-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "OneDrive",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "compliance@company.com"
+                ]
+            }
+        }
+    ]
+}

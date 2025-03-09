@@ -1,0 +1,44 @@
+{
+    "displayName": "Block HR data sharing externally",
+    "description": "Protect sensitive HR records.",
+    "isEnabled": true,
+    "mode": "enforce",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-86116",
+            "name": "Block HR data sharing externally",
+            "actions": [
+                {
+                    "type": "blockAccess"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "general-pii-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "Exchange",
+                "Teams",
+                "OneDrive",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "dlp-alerts@company.com"
+                ]
+            }
+        }
+    ]
+}

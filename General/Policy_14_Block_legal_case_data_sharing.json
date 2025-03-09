@@ -1,0 +1,44 @@
+{
+    "displayName": "Block legal case data sharing",
+    "description": "Prevent legal case details leaks.",
+    "isEnabled": true,
+    "mode": "enforce",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-55308",
+            "name": "Block legal case data sharing",
+            "actions": [
+                {
+                    "type": "blockAccess"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "general-confidential-data-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "Exchange",
+                "Teams",
+                "OneDrive",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "dlp-alerts@company.com"
+                ]
+            }
+        }
+    ]
+}

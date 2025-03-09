@@ -1,0 +1,44 @@
+{
+    "displayName": "Prevent client contract sharing externally",
+    "description": "Protect client contract confidentiality.",
+    "isEnabled": true,
+    "mode": "enforce",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-62332",
+            "name": "Prevent client contract sharing externally",
+            "actions": [
+                {
+                    "type": "blockAccess"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "general-confidential-data-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "Exchange",
+                "Teams",
+                "OneDrive",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "dlp-alerts@company.com"
+                ]
+            }
+        }
+    ]
+}

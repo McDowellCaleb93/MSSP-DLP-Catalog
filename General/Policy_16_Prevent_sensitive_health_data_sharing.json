@@ -1,0 +1,44 @@
+{
+    "displayName": "Prevent sensitive health data sharing",
+    "description": "Stop accidental PHI/health data sharing.",
+    "isEnabled": true,
+    "mode": "enforce",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-33933",
+            "name": "Prevent sensitive health data sharing",
+            "actions": [
+                {
+                    "type": "blockAccess"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "general-pii-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "Exchange",
+                "Teams",
+                "OneDrive",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "dlp-alerts@company.com"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "displayName": "Audit merger and acquisition data",
+    "description": "Monitor M&A data movement.",
+    "isEnabled": true,
+    "mode": "test",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-50083",
+            "name": "Audit merger and acquisition data",
+            "actions": [
+                {
+                    "type": "audit"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "general-confidential-data-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "Exchange",
+                "Teams",
+                "OneDrive",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "dlp-alerts@company.com"
+                ]
+            }
+        }
+    ]
+}

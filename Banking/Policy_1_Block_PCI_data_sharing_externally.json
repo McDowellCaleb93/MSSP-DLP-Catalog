@@ -1,0 +1,43 @@
+{
+    "displayName": "Block PCI data sharing externally",
+    "description": "Prevent PCI data leaks",
+    "isEnabled": true,
+    "mode": "enforce",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-35418",
+            "name": "Block PCI data sharing externally",
+            "actions": [
+                {
+                    "type": "blockAccess"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "banking-pci-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "Exchange",
+                "Teams",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "compliance@company.com"
+                ]
+            }
+        }
+    ]
+}

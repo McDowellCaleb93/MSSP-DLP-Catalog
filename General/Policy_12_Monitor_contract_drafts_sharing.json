@@ -1,0 +1,44 @@
+{
+    "displayName": "Monitor contract drafts sharing",
+    "description": "Track contract drafts being shared.",
+    "isEnabled": true,
+    "mode": "test",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-18002",
+            "name": "Monitor contract drafts sharing",
+            "actions": [
+                {
+                    "type": "audit"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "general-confidential-data-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "Exchange",
+                "Teams",
+                "OneDrive",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "dlp-alerts@company.com"
+                ]
+            }
+        }
+    ]
+}

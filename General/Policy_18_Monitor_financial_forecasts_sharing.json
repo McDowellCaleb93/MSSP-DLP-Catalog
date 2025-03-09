@@ -1,0 +1,44 @@
+{
+    "displayName": "Monitor financial forecasts sharing",
+    "description": "Audit sharing of projections and forecasts.",
+    "isEnabled": true,
+    "mode": "test",
+    "priority": 1,
+    "rules": [
+        {
+            "id": "rule-52762",
+            "name": "Monitor financial forecasts sharing",
+            "actions": [
+                {
+                    "type": "audit"
+                }
+            ],
+            "conditions": {
+                "contentContainsSensitiveInformation": [
+                    {
+                        "sensitiveTypeId": "general-financial-data-sit",
+                        "minCount": 1,
+                        "confidenceLevel": "high"
+                    }
+                ],
+                "contentContainsAnyOfWords": []
+            },
+            "locations": [
+                "Exchange",
+                "Teams",
+                "OneDrive",
+                "SharePoint"
+            ],
+            "userNotification": {
+                "isEnabled": true,
+                "templateId": "default-notification-template"
+            },
+            "incidentReport": {
+                "isEnabled": true,
+                "recipients": [
+                    "dlp-alerts@company.com"
+                ]
+            }
+        }
+    ]
+}
