@@ -15,6 +15,8 @@ Each policy is organized by industry and includes a **Graph API call sample** fo
 - AI/
 - General/
 - OverlapBuckets/ (multi-industry shared rules)
+- Graph API/ (deployment scripts for graph api based deployments)
+- Powershell/ (deployment scripts for powershell based deployments) 
 ```
 
 Each folder contains:
