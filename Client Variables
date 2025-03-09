@@ -1,0 +1,8 @@
+{
+  "clientName": "Acme Corp",
+  "tenantId": "1234-5678-9101-1121",
+  "complianceEmails": ["compliance@acme.com"],
+  "trustedDomains": ["acme.com", "partner.acme.com"],
+  "dlpNotificationTemplateId": "template-123456",
+  "incidentRecipients": ["security@acme.com", "legal@acme.com"]
+}
