@@ -85,8 +85,8 @@ You can also automate deployment using PowerShell or GitHub Actions for CI/CD. (
 - [ ] YAML / ARM templates for infrastructure as code (IaC) scenarios
 
 ## 🧑‍💼 Authors and Contributors
-
-Security Services Division (Microsoft Solutions)
+Microsoft Security Services:
+Caleb a McDowell - Director
 
 ## 📄 License
 
