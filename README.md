@@ -86,7 +86,8 @@ You can also automate deployment using PowerShell or GitHub Actions for CI/CD. (
 
 ## 🧑‍💼 Authors and Contributors
 Microsoft Security Services:
-Caleb a McDowell - Director
+
+- Caleb a McDowell - Director
 
 ## 📄 License
 
